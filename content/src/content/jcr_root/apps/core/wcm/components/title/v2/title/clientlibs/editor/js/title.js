@@ -1,248 +1,217 @@
-/*******************************************************************************
- * Copyright 2017 Adobe
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- ******************************************************************************/
-/**
- * Design dialog:
- * - The options of the select field to define the default value are added/removed based on the status
- * of the size checkboxes
- * - Validation: if no size checkboxes are checked, the dialog cannot be saved
- *
- * Edit dialog:
- * - displays all the sizes if no sizes have been defined in the policy
- * - hides all the sizes if only one size has been defined in the policy
- * - displays all the sizes defined in the policy if there are at least two
- */
-(function($, Granite, ns, $document) {
-    "use strict";
+<!doctype html>
+<html lang=en>
+  <head>
+    <title>NameError: name &#39;path&#39; is not defined
+ // Werkzeug Debugger</title>
+    <link rel="stylesheet" href="?__debugger__=yes&amp;cmd=resource&amp;f=style.css">
+    <link rel="shortcut icon"
+        href="?__debugger__=yes&amp;cmd=resource&amp;f=console.png">
+    <script src="?__debugger__=yes&amp;cmd=resource&amp;f=debugger.js"></script>
+    <script>
+      var CONSOLE_MODE = false,
+          EVALEX = true,
+          EVALEX_TRUSTED = false,
+          SECRET = "1il1neLWNTgiE0uvweP1";
+    </script>
+  </head>
+  <body style="background-color: #fff">
+    <div class="debugger">
+<h1>NameError</h1>
+<div class="detail">
+  <p class="errormsg">NameError: name &#39;path&#39; is not defined
+</p>
+</div>
+<h2 class="traceback">Traceback <em>(most recent call last)</em></h2>
+<div class="traceback">
+  <h3></h3>
+  <ul><li><div class="frame" id="frame-4630209248">
+  <h4>File <cite class="filename">"/Users/akasjain/project/genai-llm/venv/lib/python3.9/site-packages/flask/app.py"</cite>,
+      line <em class="line">1498</em>,
+      in <code class="function">__call__</code></h4>
+  <div class="source library"><pre class="line before"><span class="ws">    </span>) -&gt; cabc.Iterable[bytes]:</pre>
+<pre class="line before"><span class="ws">        </span>&#34;&#34;&#34;The WSGI server calls the Flask application object as the</pre>
+<pre class="line before"><span class="ws">        </span>WSGI application. This calls :meth:`wsgi_app`, which can be</pre>
+<pre class="line before"><span class="ws">        </span>wrapped to apply middleware.</pre>
+<pre class="line before"><span class="ws">        </span>&#34;&#34;&#34;</pre>
+<pre class="line current"><span class="ws">        </span>return self.wsgi_app(environ, start_response)</pre></div>
+</div>
 
-    var DEFAULT_SIZE_SELECTOR       = "coral-select.core-title-size-default";
-    var DEFAULT_SIZES_SELECTOR      = "coral-select.core-title-sizes-default";
-    var ALLOWED_SIZES_SELECTOR      = ".core-title-sizes-allowed coral-checkbox";
-    var DATA_ATTR_VALIDATION_STATE  = "checkboxes.validation.state";
-    var SIZES_SELECTOR              = "coral-select.core-title-sizes";
-    var LINK_URL_SELECTOR           = ".cmp-title-link-url";
-    var LINK_LABEL_SELECTOR         = ".cmp-title-link-label";
-    var LINK_TITLE_SELECTOR         = ".cmp-title-link-title";
+<li><div class="frame" id="frame-4641281968">
+  <h4>File <cite class="filename">"/Users/akasjain/project/genai-llm/venv/lib/python3.9/site-packages/flask/app.py"</cite>,
+      line <em class="line">1476</em>,
+      in <code class="function">wsgi_app</code></h4>
+  <div class="source library"><pre class="line before"><span class="ws">            </span>try:</pre>
+<pre class="line before"><span class="ws">                </span>ctx.push()</pre>
+<pre class="line before"><span class="ws">                </span>response = self.full_dispatch_request()</pre>
+<pre class="line before"><span class="ws">            </span>except Exception as e:</pre>
+<pre class="line before"><span class="ws">                </span>error = e</pre>
+<pre class="line current"><span class="ws">                </span>response = self.handle_exception(e)</pre>
+<pre class="line after"><span class="ws">            </span>except:  # noqa: B001</pre>
+<pre class="line after"><span class="ws">                </span>error = sys.exc_info()[1]</pre>
+<pre class="line after"><span class="ws">                </span>raise</pre>
+<pre class="line after"><span class="ws">            </span>return response(environ, start_response)</pre>
+<pre class="line after"><span class="ws">        </span>finally:</pre></div>
+</div>
 
-    // Update the select field that defines the default value
-    function updateDefaultSizeSelect(checkboxToggled) {
+<li><div class="frame" id="frame-4641282080">
+  <h4>File <cite class="filename">"/Users/akasjain/project/genai-llm/venv/lib/python3.9/site-packages/flask/app.py"</cite>,
+      line <em class="line">1473</em>,
+      in <code class="function">wsgi_app</code></h4>
+  <div class="source library"><pre class="line before"><span class="ws">        </span>ctx = self.request_context(environ)</pre>
+<pre class="line before"><span class="ws">        </span>error: BaseException | None = None</pre>
+<pre class="line before"><span class="ws">        </span>try:</pre>
+<pre class="line before"><span class="ws">            </span>try:</pre>
+<pre class="line before"><span class="ws">                </span>ctx.push()</pre>
+<pre class="line current"><span class="ws">                </span>response = self.full_dispatch_request()</pre>
+<pre class="line after"><span class="ws">            </span>except Exception as e:</pre>
+<pre class="line after"><span class="ws">                </span>error = e</pre>
+<pre class="line after"><span class="ws">                </span>response = self.handle_exception(e)</pre>
+<pre class="line after"><span class="ws">            </span>except:  # noqa: B001</pre>
+<pre class="line after"><span class="ws">                </span>error = sys.exc_info()[1]</pre></div>
+</div>
 
-        var select = $(DEFAULT_SIZE_SELECTOR).get(0);
-        var $checkboxes = $(ALLOWED_SIZES_SELECTOR);
-        var checkedTotal = 0;
-        var selectValue = "";
+<li><div class="frame" id="frame-4641282192">
+  <h4>File <cite class="filename">"/Users/akasjain/project/genai-llm/venv/lib/python3.9/site-packages/flask/app.py"</cite>,
+      line <em class="line">882</em>,
+      in <code class="function">full_dispatch_request</code></h4>
+  <div class="source library"><pre class="line before"><span class="ws">            </span>request_started.send(self, _async_wrapper=self.ensure_sync)</pre>
+<pre class="line before"><span class="ws">            </span>rv = self.preprocess_request()</pre>
+<pre class="line before"><span class="ws">            </span>if rv is None:</pre>
+<pre class="line before"><span class="ws">                </span>rv = self.dispatch_request()</pre>
+<pre class="line before"><span class="ws">        </span>except Exception as e:</pre>
+<pre class="line current"><span class="ws">            </span>rv = self.handle_user_exception(e)</pre>
+<pre class="line after"><span class="ws">        </span>return self.finalize_request(rv)</pre>
+<pre class="line after"><span class="ws"></span> </pre>
+<pre class="line after"><span class="ws">    </span>def finalize_request(</pre>
+<pre class="line after"><span class="ws">        </span>self,</pre>
+<pre class="line after"><span class="ws">        </span>rv: ft.ResponseReturnValue | HTTPException,</pre></div>
+</div>
 
-        if (select === null || select === undefined) {
-            return;
-        }
+<li><div class="frame" id="frame-4641282304">
+  <h4>File <cite class="filename">"/Users/akasjain/project/genai-llm/venv/lib/python3.9/site-packages/flask/app.py"</cite>,
+      line <em class="line">880</em>,
+      in <code class="function">full_dispatch_request</code></h4>
+  <div class="source library"><pre class="line before"><span class="ws"></span> </pre>
+<pre class="line before"><span class="ws">        </span>try:</pre>
+<pre class="line before"><span class="ws">            </span>request_started.send(self, _async_wrapper=self.ensure_sync)</pre>
+<pre class="line before"><span class="ws">            </span>rv = self.preprocess_request()</pre>
+<pre class="line before"><span class="ws">            </span>if rv is None:</pre>
+<pre class="line current"><span class="ws">                </span>rv = self.dispatch_request()</pre>
+<pre class="line after"><span class="ws">        </span>except Exception as e:</pre>
+<pre class="line after"><span class="ws">            </span>rv = self.handle_user_exception(e)</pre>
+<pre class="line after"><span class="ws">        </span>return self.finalize_request(rv)</pre>
+<pre class="line after"><span class="ws"></span> </pre>
+<pre class="line after"><span class="ws">    </span>def finalize_request(</pre></div>
+</div>
 
-        // clear the select items to work around a Coral.Select issue (CUI-5584)
-        select.items.clear();
+<li><div class="frame" id="frame-4641282416">
+  <h4>File <cite class="filename">"/Users/akasjain/project/genai-llm/venv/lib/python3.9/site-packages/flask/app.py"</cite>,
+      line <em class="line">865</em>,
+      in <code class="function">dispatch_request</code></h4>
+  <div class="source library"><pre class="line before"><span class="ws">            </span>and req.method == &#34;OPTIONS&#34;</pre>
+<pre class="line before"><span class="ws">        </span>):</pre>
+<pre class="line before"><span class="ws">            </span>return self.make_default_options_response()</pre>
+<pre class="line before"><span class="ws">        </span># otherwise dispatch to the handler for that endpoint</pre>
+<pre class="line before"><span class="ws">        </span>view_args: dict[str, t.Any] = req.view_args  # type: ignore[assignment]</pre>
+<pre class="line current"><span class="ws">        </span>return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]</pre>
+<pre class="line after"><span class="ws"></span> </pre>
+<pre class="line after"><span class="ws">    </span>def full_dispatch_request(self) -&gt; Response:</pre>
+<pre class="line after"><span class="ws">        </span>&#34;&#34;&#34;Dispatches the request and on top of that performs request</pre>
+<pre class="line after"><span class="ws">        </span>pre and postprocessing as well as HTTP exception catching and</pre>
+<pre class="line after"><span class="ws">        </span>error handling.</pre></div>
+</div>
 
-        // for each checked checkbox, add an option to the default sizes dropdown
-        $checkboxes.each(function(i, checkbox) {
-            if (checkbox.checked) {
-                var newItem = new Coral.Select.Item();
-                newItem.content.textContent = checkbox.label.innerHTML;
-                newItem.value = checkbox.value;
-                select.items.add(newItem);
-                checkedTotal++;
-            }
-        });
+<li><div class="frame" id="frame-4641282528">
+  <h4>File <cite class="filename">"/Users/akasjain/project/Glocalize/gen_ai/model_server.py"</cite>,
+      line <em class="line">25</em>,
+      in <code class="function">predict</code></h4>
+  <div class="source "><pre class="line before"><span class="ws">    </span>data = request.get_data()</pre>
+<pre class="line before"><span class="ws">    </span>print(&#39;data&#39;, data)</pre>
+<pre class="line before"><span class="ws">    </span>#path = data[&#39;path&#39;]</pre>
+<pre class="line before"><span class="ws">    </span>#prompt = data[&#39;prompt&#39;]</pre>
+<pre class="line before"><span class="ws">    </span># Log the received data</pre>
+<pre class="line current"><span class="ws">    </span># logger.info(f&#34;Received file: {path}&#34;)</pre>
+<pre class="line after"><span class="ws">    </span># logger.info(f&#34;Received data: {prompt}&#34;)</pre>
+<pre class="line after"><span class="ws"></span> </pre>
+<pre class="line after"><span class="ws">    </span># Make prediction using the model</pre>
+<pre class="line after"><span class="ws">    </span>output = model.localize_code_completion(tokenizer, peft_model, data)</pre>
+<pre class="line after"><span class="ws"></span> </pre></div>
+</div>
+</ul>
+  <blockquote>NameError: name &#39;path&#39; is not defined
+</blockquote>
+</div>
 
-        // set the default value of the size dropdown
-        if (checkboxToggled) {
-            selectValue = getAppropriateCheckedBoxValue($checkboxes, select.value);
-        } else {
-            // the default value is read from the repository
-            selectValue = select.value;
-        }
+<div class="plain">
+    <p>
+      This is the Copy/Paste friendly version of the traceback.
+    </p>
+    <textarea cols="50" rows="10" name="code" readonly>Traceback (most recent call last):
+  File &#34;/Users/akasjain/project/genai-llm/venv/lib/python3.9/site-packages/flask/app.py&#34;, line 1498, in __call__
+    return self.wsgi_app(environ, start_response)
+  File &#34;/Users/akasjain/project/genai-llm/venv/lib/python3.9/site-packages/flask/app.py&#34;, line 1476, in wsgi_app
+    response = self.handle_exception(e)
+  File &#34;/Users/akasjain/project/genai-llm/venv/lib/python3.9/site-packages/flask/app.py&#34;, line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+  File &#34;/Users/akasjain/project/genai-llm/venv/lib/python3.9/site-packages/flask/app.py&#34;, line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File &#34;/Users/akasjain/project/genai-llm/venv/lib/python3.9/site-packages/flask/app.py&#34;, line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File &#34;/Users/akasjain/project/genai-llm/venv/lib/python3.9/site-packages/flask/app.py&#34;, line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File &#34;/Users/akasjain/project/Glocalize/gen_ai/model_server.py&#34;, line 25, in predict
+    # logger.info(f&#34;Received file: {path}&#34;)
+NameError: name &#39;path&#39; is not defined
+</textarea>
+</div>
+<div class="explanation">
+  The debugger caught an exception in your WSGI application.  You can now
+  look at the traceback which led to the error.  <span class="nojavascript">
+  If you enable JavaScript you can also use additional features such as code
+  execution (if the evalex feature is enabled), automatic pasting of the
+  exceptions and much more.</span>
+</div>
+      <div class="footer">
+        Brought to you by <strong class="arthur">DON'T PANIC</strong>, your
+        friendly Werkzeug powered traceback interpreter.
+      </div>
+    </div>
 
-        // hide/show the select
-        // Note: we use Coral.commons.nextFrame to make sure that the select widget has been updated
-        Coral.commons.nextFrame(function() {
-            select.value = selectValue;
-            if (checkedTotal === 0 || checkedTotal === 1) {
-                $(select).parent().hide();
-            } else {
-                $(select).parent().show();
-            }
-        });
-    }
+    <div class="pin-prompt">
+      <div class="inner">
+        <h3>Console Locked</h3>
+        <p>
+          The console is locked and needs to be unlocked by entering the PIN.
+          You can find the PIN printed out on the standard output of your
+          shell that runs the server.
+        <form>
+          <p>PIN:
+            <input type=text name=pin size=14>
+            <input type=submit name=btn value="Confirm Pin">
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
 
-    // get the appropriate checked box value by checking if the current value of the default type is a valid option in the list of allowed types/sizes
-    function getAppropriateCheckedBoxValue(checkboxes, currentDefaultTypeValue) {
-        var isCurrentDefaultTypeValueValidOption = false;
-        checkboxes.each(function(i, checkbox) {
-            if (checkbox.checked && checkbox.value === currentDefaultTypeValue) {
-                isCurrentDefaultTypeValueValidOption = true;
-                return false;
-            }
-        });
-        // if the current value of the default type is a valid option, it will return it
-        if (isCurrentDefaultTypeValueValidOption) {
-            return currentDefaultTypeValue;
-        } else {
-            // if the current value of the default type is a not valid option, it will return the value of the first checked box
-            var firstCheckedValue = "";
-            checkboxes.each(function(i, checkbox) {
-                if (checkbox.checked) {
-                    firstCheckedValue = checkbox.value;
-                    return false;
-                }
-            });
-            return firstCheckedValue;
-        }
-    }
+<!--
 
-    // toggles the disable attribute of the Link Label and Link Title Attribute inputs, based on the Link Url existence
-    function toggleDisableAttributeOnLinkLabelAndTitleInputs() {
-        $(LINK_LABEL_SELECTOR).prop("disabled", !$(LINK_URL_SELECTOR).val());
-        $(LINK_TITLE_SELECTOR).prop("disabled", !$(LINK_URL_SELECTOR).val());
-    }
+Traceback (most recent call last):
+  File "/Users/akasjain/project/genai-llm/venv/lib/python3.9/site-packages/flask/app.py", line 1498, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/Users/akasjain/project/genai-llm/venv/lib/python3.9/site-packages/flask/app.py", line 1476, in wsgi_app
+    response = self.handle_exception(e)
+  File "/Users/akasjain/project/genai-llm/venv/lib/python3.9/site-packages/flask/app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/akasjain/project/genai-llm/venv/lib/python3.9/site-packages/flask/app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/akasjain/project/genai-llm/venv/lib/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/akasjain/project/genai-llm/venv/lib/python3.9/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/Users/akasjain/project/Glocalize/gen_ai/model_server.py", line 25, in predict
+    # logger.info(f"Received file: {path}")
+NameError: name 'path' is not defined
 
-    // temporary workaround until CQ-4206495 and CUI-1818 are fixed:
-    // add a margin when opening the dropdown
-    $document.on("coral-select:showitems", DEFAULT_SIZE_SELECTOR, function(e) {
-        var select = e.currentTarget;
-        var buttonHeight = $(select).find("button").outerHeight(true);
-        var count = select.items.length;
-        var totalHeight = count * (buttonHeight + 5);
-        var maxHeight = parseInt($(select).find("coral-selectlist").css("max-height"), 10);
-        var marginBottom = Math.min(totalHeight, maxHeight);
-        $(select).css("margin-bottom", marginBottom);
-    });
 
-    // temporary workaround until CQ-4206495 and CUI-1818 are fixed:
-    // remove the margin when closing the dropdown
-    $document.on("coral-select:hideitems", DEFAULT_SIZE_SELECTOR, function(e) {
-        var select = e.currentTarget;
-        $(select).css("margin-bottom", 0);
-    });
-
-    // Update the default size select when an allowed size is checked/unchecked
-    $document.on("change", ALLOWED_SIZES_SELECTOR, function(e) {
-        updateDefaultSizeSelect(true);
-    });
-
-    $document.on("foundation-contentloaded", function(e) {
-        // Update the default size select when the design title dialog is opened
-        Coral.commons.ready($(ALLOWED_SIZES_SELECTOR), function(component) {
-            updateDefaultSizeSelect(false);
-        });
-
-        // Hide/display the edit dialog size dropdown
-        Coral.commons.ready($(SIZES_SELECTOR, DEFAULT_SIZES_SELECTOR), function(component) {
-            var select = $(SIZES_SELECTOR).get(0);
-            var defaultSelect = $(DEFAULT_SIZES_SELECTOR).get(0);
-            if (select === null || select === undefined || defaultSelect === null || defaultSelect === undefined) {
-                return;
-            }
-            var itemsCount = select.items.getAll().length;
-            if (itemsCount === 0) {
-                // display all the sizes
-                $(select).parent().remove();
-            } else if (itemsCount === 1) {
-                // don't display anything
-                $(select).parent().remove();
-                $(defaultSelect).parent().remove();
-            } else {
-                // display the values defined in the design policy
-                $(defaultSelect).parent().remove();
-            }
-        });
-        Coral.commons.ready($(LINK_URL_SELECTOR, LINK_LABEL_SELECTOR, LINK_TITLE_SELECTOR), function(component) {
-            toggleDisableAttributeOnLinkLabelAndTitleInputs();
-        });
-    });
-
-    $(document).on("input", LINK_URL_SELECTOR, function(input) {
-        $(LINK_URL_SELECTOR).val(input.target.value);
-        toggleDisableAttributeOnLinkLabelAndTitleInputs();
-    });
-
-    $(document).on("change", LINK_URL_SELECTOR, function(input) {
-        toggleDisableAttributeOnLinkLabelAndTitleInputs();
-    });
-
-    // Display an error if all checkboxes are empty
-    $(window).adaptTo("foundation-registry").register("foundation.validation.validator", {
-        selector: ALLOWED_SIZES_SELECTOR,
-        validate: function(el) {
-
-            var $checkboxes = $(el).parent().children(ALLOWED_SIZES_SELECTOR);
-            var firstEl = $checkboxes.get(0);
-            var isValid = $(firstEl).data(DATA_ATTR_VALIDATION_STATE);
-            var validationDone = isValid !== undefined;
-
-            // if the validation has already been done, we get the status from the first checkbox
-            if (validationDone) {
-                $(firstEl).removeData(DATA_ATTR_VALIDATION_STATE);
-                if (!isValid) {
-                    return "Select at least one size option.";
-                } else {
-                    return;
-                }
-            }
-
-            // set the validation status on the first checkbox
-            isValid = false;
-            $checkboxes.each(function(i, checkbox) {
-                if (checkbox.checked) {
-                    isValid = true;
-                    return false;
-                }
-            });
-            $(firstEl).data(DATA_ATTR_VALIDATION_STATE, isValid);
-
-            // trigger the validation on the first checkbox
-            var api = $(firstEl).adaptTo("foundation-validation");
-            api.checkValidity();
-            api.updateUI();
-        },
-        show: function(el, message) {
-            var $el = $(el);
-
-            var fieldAPI = $el.adaptTo("foundation-field");
-            if (fieldAPI && fieldAPI.setInvalid) {
-                fieldAPI.setInvalid(true);
-            }
-
-            var error = $el.data("foundation-validation.internal.error");
-
-            if (error) {
-                error.content.innerHTML = message;
-
-                if (!error.parentNode) {
-                    $el.after(error);
-                    error.show();
-                }
-            } else {
-                error = new Coral.Tooltip();
-                error.variant = "error";
-                error.interaction = "off";
-                error.placement = "bottom";
-                error.target = el;
-                error.content.innerHTML = message;
-                error.open = true;
-                error.id = Coral.commons.getUID();
-
-                $el.data("foundation-validation.internal.error", error);
-                $el.after(error);
-            }
-        }
-    });
-
-}(jQuery, Granite, Granite.author, jQuery(document)));
+-->
