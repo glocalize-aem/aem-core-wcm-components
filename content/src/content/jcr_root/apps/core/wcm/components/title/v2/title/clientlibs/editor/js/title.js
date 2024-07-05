@@ -191,7 +191,7 @@
             if (validationDone) {
                 $(firstEl).removeData(DATA_ATTR_VALIDATION_STATE);
                 if (!isValid) {
-                    return "Select at least one size option.";
+                    return Granite.I18n.get("Select at least one size option.");
                 } else {
                     return;
                 }
