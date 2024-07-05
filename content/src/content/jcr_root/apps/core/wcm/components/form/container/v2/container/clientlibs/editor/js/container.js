@@ -169,8 +169,8 @@
     });
 
     function validateEmail(element, addEmptyFieldValidation) {
-        var emptyFieldErrorMessage = Granite.I18n.get("Error: Please fill out this field.");
-        var invalidEmailErrorMessage = Granite.I18n.get("Error: Invalid Email Address.");
+        var emptyFieldErrorMessage = "Error: Please fill out this field.";
+        var invalidEmailErrorMessage = "Error: Invalid Email Address.";
         var validEmailRegex = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
         var input =  element.value;
         if (input && !input.match(validEmailRegex)) {

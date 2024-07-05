@@ -78,7 +78,7 @@
             ? $(selectors.edit.stopLevel)[0].value
             : restrictedStopLevel;
         if (startLevel > stopLevel) {
-            return Granite.I18n.get(errorMessage);
+            return errorMessage;
         }
     }
 
@@ -87,7 +87,7 @@
         var restrictStopLevel = $(selectors.design.restrictStopLevel)[0].value;
         if (restrictStartLevel !== "norestriction" && restrictStopLevel !== "norestriction" &&
                 restrictStartLevel > restrictStopLevel) {
-            return Granite.I18n.get(errorMessage);
+            return errorMessage;
         }
     }
 

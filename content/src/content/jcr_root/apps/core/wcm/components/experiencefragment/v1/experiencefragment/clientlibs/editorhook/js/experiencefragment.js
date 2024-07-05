@@ -17,7 +17,7 @@
 (function($, ns) {
     "use strict";
 
-    var MSG_NO_FRAGMENT_PATH = Granite.I18n.get("This experience fragment component doesn't have an associated variation");
+    var MSG_NO_FRAGMENT_PATH = "This experience fragment component doesn't have an associated variation";
 
     ns.experiencefragment.v1.actions.edit = function() {
         var ui = $(window).adaptTo("foundation-ui");

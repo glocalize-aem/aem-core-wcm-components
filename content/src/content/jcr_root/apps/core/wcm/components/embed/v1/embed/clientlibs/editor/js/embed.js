@@ -115,7 +115,7 @@
             }
             updateUrlStatus();
             if (!urlValidation.isValidUrl()) {
-                return Granite.I18n.get(urlValidation.getErrorMessage());
+                return urlValidation.getErrorMessage();
             }
         }
     });
@@ -415,7 +415,7 @@
             var toggleable = $(urlStatus).adaptTo("foundation-toggleable");
             if (provider && urlValidation.isValidUrl()) {
                 var capitalized = provider.charAt(0).toUpperCase() + provider.slice(1);
-                urlStatus.innerText = Granite.I18n.get(capitalized + " URL can be processed.");
+                urlStatus.innerText = capitalized + " URL can be processed.";
                 toggleable.show();
             } else {
                 urlStatus.innerText = "";

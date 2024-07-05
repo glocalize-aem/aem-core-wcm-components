@@ -395,7 +395,7 @@
             var title = "<span class='foundation-layout-util-subtletext cmp-panelselector__indexMarker'>" + index + "</span>&nbsp;&nbsp;";
             var subTitle = "";
 
-            title = title + " " + Granite.I18n.getVar(ns.editableHelper.getEditableDisplayableName(editable));
+            title = title + " " + ns.editableHelper.getEditableDisplayableName(editable);
 
             if (item) {
                 if (item[PN_PANEL_TITLE]) {
@@ -419,7 +419,7 @@
      */
     var panelSelect = new ns.ui.ToolbarAction({
         name: "PANEL_SELECT",
-        text: Granite.I18n.get("Select panel"),
+        text: "Select panel",
         icon: "multipleCheck",
         order: "before COPY",
         execute: function(editable, param, target) {

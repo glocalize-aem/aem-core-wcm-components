@@ -72,7 +72,7 @@
                             var component = item.querySelector(selectors.item.icon + " [title]").getAttribute("title");
                             var title = item.querySelector(selectors.item.input);
                             var name = (title && title.name) ? title.name.match(".?/?(.+)/.*")[1] : "";
-                            var description = Granite.I18n.get(component) + ((title && title.value) ? ": " + Granite.I18n.get(title.value) : "");
+                            var description = component + ((title && title.value) ? ": " + title.value : "");
                             items.push({
                                 name: name,
                                 description: description
@@ -219,7 +219,7 @@
 
                                                 var input = item.querySelectorAll(selectors.item.input)[0];
                                                 input.name = "./" + name + "/" + PN_PANEL_TITLE;
-                                                input.placeholder = Granite.I18n.get(componentTitle);
+                                                input.placeholder = componentTitle;
 
                                                 var hiddenItemResourceType = item.querySelectorAll(selectors.item.hiddenItemResourceType)[0];
                                                 hiddenItemResourceType.value = resourceType;

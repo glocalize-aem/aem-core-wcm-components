@@ -146,7 +146,7 @@
             if (!isDecorativeChecked && !seededValue &&
                 ((isImageFromPageImageChecked && isAltFromPageImageChecked) ||
                     (!isImageFromPageImageChecked && isAltFromDAMChecked && !isAltFromDAMDisabled))) {
-                return Granite.I18n.get(assetWithoutDescriptionErrorMessage);
+                return assetWithoutDescriptionErrorMessage;
             }
         }
     });
