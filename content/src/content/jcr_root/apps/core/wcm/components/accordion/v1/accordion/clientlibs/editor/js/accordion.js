@@ -12,8 +12,7 @@
  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  ~ See the License for the specific language governing permissions and
  ~ limitations under the License.
- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-(function($, Coral) {
+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/(function($, Coral) {
     "use strict";
 
     var selectors = {
@@ -94,81 +93,96 @@
             expandedItemValues.push(expandedItems[i].value);
         }
 
-        if (childrenEditor && singleExpansion && expandedItems && expandedSelect && expandedSelectSingle) {
-            Coral.commons.ready(childrenEditor, function() {
-                var cmpChildrenEditor = $(childrenEditor).adaptTo("cmp-childreneditor");
-                updateExpandedSelect(childrenEditor, expandedSelect, expandedItemValues, false);
-                updateExpandedSelect(childrenEditor, expandedSelectSingle, expandedItemValues, true);
-                if (cmpChildrenEditor.items().length === 0) {
-                    toggleExpandedSelects(expandedSelect, expandedSelectSingle, undefined, true);
-                } else {
-                    toggleExpandedSelects(expandedSelect, expandedSelectSingle, singleExpansion.checked);
-                }
+        var childrenEditor = Granite.I18n.getVar(childrenEditor);
+        var singleExpansion = Granite.I18n.getVar(singleExpansion);
+        var expandedItems = Granite.I18n.getVar(expandedItems);
+        var expandedSelect = Granite.I18n.getVar(expandedSelect);
+        var expandedSelectSingle = Granite.I18n.getVar(expandedSelectSingle);
+        var headingElement = Granite.I18n.getVar(headingElement);
 
-                childrenEditor.on("change", function() {
-                    updateExpandedSelect(childrenEditor, expandedSelect, expandedItemValues, false);
-                    updateExpandedSelect(childrenEditor, expandedSelectSingle, expandedItemValues, true);
-                    if (cmpChildrenEditor.items().length === 0) {
-                        toggleExpandedSelects(expandedSelect, expandedSelectSingle, undefined, true);
-                    } else {
-                        toggleExpandedSelects(expandedSelect, expandedSelectSingle, singleExpansion.checked);
-                    }
-                });
-
-                singleExpansion.on("change", function() {
-                    if (cmpChildrenEditor.items().length === 0) {
-                        toggleExpandedSelects(expandedSelect, expandedSelectSingle, undefined, true);
-                    } else {
-                        toggleExpandedSelects(expandedSelect, expandedSelectSingle, singleExpansion.checked);
-                    }
-                });
-            });
-        }
-
-        if (headingElement) {
-            Coral.commons.ready(headingElement, function(element) {
-                var headingElementToggleable = $(element.parentNode).adaptTo("foundation-toggleable");
-                var itemCount = element.items.getAll().length;
-                if (itemCount < 2) {
-                    headingElementToggleable.hide();
-                }
-            });
+        for (var i = 0; i < expandedItems.length; i++) {
+            expandedItemValues.push(Granite.I18n.getVar(expandedItems[i].value));
         }
     }
 
-    /**
-     * Toggles expanded selects based on single expansion state
-     *
-     * @param {HTMLElement} expandedSelect Expanded accordion items select field
-     * @param {HTMLElement} expandedSelectSingle Expanded accordion items single select field
-     * @param {Boolean} singleExpansion true if single expansion is enabled, false otherwise
-     * @param {Boolean} [hideAll] true to disable and hide all selects
-     */
-    function toggleExpandedSelects(expandedSelect, expandedSelectSingle, singleExpansion, hideAll) {
-        var expandedSelectField = $(expandedSelect).adaptTo("foundation-field");
-        var expandedSelectToggleable = $(expandedSelect.parentNode).adaptTo("foundation-toggleable");
-        var expandedSelectSingleField = $(expandedSelectSingle).adaptTo("foundation-field");
-        var expandedSelectSingleToggleable = $(expandedSelectSingle.parentNode).adaptTo("foundation-toggleable");
+    return {
+        handleEditDialog: handleEditDialog,
+        handlePolicyDialog: handlePolicyDialog
+    };
 
-        if (hideAll) {
-            expandedSelectField.setDisabled(true);
-            expandedSelectToggleable.hide();
-            expandedSelectSingleField.setDisabled(true);
-            expandedSelectSingleToggleable.hide();
-        } else if (singleExpansion) {
-            expandedSelectField.setDisabled(true);
-            expandedSelectToggleable.hide();
-            expandedSelectSingleField.setDisabled(false);
-            expandedSelectSingleToggleable.show();
+})(Granite.$, Granite.Coral);if (childrenEditor && singleExpansion && expandedItems && expandedSelect && expandedSelectSingle) {
+    Coral.commons.ready(childrenEditor, function() {
+        var cmpChildrenEditor = $(childrenEditor).adaptTo("cmp-childreneditor");
+        updateExpandedSelect(childrenEditor, expandedSelect, expandedItemValues, false);
+        updateExpandedSelect(childrenEditor, expandedSelectSingle, expandedItemValues, true);
+        if (cmpChildrenEditor.items().length === 0) {
+            toggleExpandedSelects(expandedSelect, expandedSelectSingle, undefined, true);
         } else {
-            expandedSelectField.setDisabled(false);
-            expandedSelectToggleable.show();
-            expandedSelectSingleField.setDisabled(true);
-            expandedSelectSingleToggleable.hide();
+            toggleExpandedSelects(expandedSelect, expandedSelectSingle, singleExpansion.checked);
         }
-    }
 
-    /**
+        childrenEditor.on("change", function() {
+            updateExpandedSelect(childrenEditor, expandedSelect, expandedItemValues, false);
+            updateExpandedSelect(childrenEditor, expandedSelectSingle, expandedItemValues, true);
+            if (cmpChildrenEditor.items().length === 0) {
+                toggleExpandedSelects(expandedSelect, expandedSelectSingle, undefined, true);
+            } else {
+                toggleExpandedSelects(expandedSelect, expandedSelectSingle, singleExpansion.checked);
+            }
+        });
+
+        singleExpansion.on("change", function() {
+            if (cmpChildrenEditor.items().length === 0) {
+                toggleExpandedSelects(expandedSelect, expandedSelectSingle, undefined, true);
+            } else {
+                toggleExpandedSelects(expandedSelect, expandedSelectSingle, singleExpansion.checked);
+            }
+        });
+    });
+}
+
+if (headingElement) {
+    Coral.commons.ready(headingElement, function(element) {
+        var headingElementToggleable = $(element.parentNode).adaptTo("foundation-toggleable");
+        var itemCount = element.items.getAll().length;
+        if (itemCount < 2) {
+            headingElementToggleable.hide();
+        }
+    });
+}
+}
+
+/**
+ * Toggles expanded selects based on single expansion state
+ *
+ * @param {HTMLElement} expandedSelect Expanded accordion items select field
+ * @param {HTMLElement} expandedSelectSingle Expanded accordion items single select field
+ * @param {Boolean} singleExpansion true if single expansion is enabled, false otherwise
+ * @param {Boolean} [hideAll] true to disable and hide all selects
+ */
+function toggleExpandedSelects(expandedSelect, expandedSelectSingle, singleExpansion, hideAll) {
+    var expandedSelectField = $(expandedSelect).adaptTo("foundation-field");
+    var expandedSelectToggleable = $(expandedSelect.parentNode).adaptTo("foundation-toggleable");
+    var expandedSelectSingleField = $(expandedSelectSingle).adaptTo("foundation-field");
+    var expandedSelectSingleToggleable = $(expandedSelectSingle.parentNode).adaptTo("foundation-toggleable");
+
+    if (hideAll) {
+        expandedSelectField.setDisabled(true);
+        expandedSelectToggleable.hide();
+        expandedSelectSingleField.setDisabled(true);
+        expandedSelectSingleToggleable.hide();
+    } else if (singleExpansion) {
+        expandedSelectField.setDisabled(true);
+        expandedSelectToggleable.hide();
+        expandedSelectSingleField.setDisabled(false);
+        expandedSelectSingleToggleable.show();
+    } else {
+        expandedSelectField.setDisabled(false);
+        expandedSelectToggleable.show();
+        expandedSelectSingleField.setDisabled(true);
+        expandedSelectSingleToggleable.hide();
+    }
+}/**
      * Update the list of accordion items in the expanded accordion items selector
      *
      * @param {HTMLElement} childrenEditor Children editor multifield
@@ -190,7 +204,7 @@
                 expandedSelect.items.add({
                     selected: (selectedValues.length === 0),
                     content: {
-                        textContent: "None"
+                        textContent: Granite.I18n.get("None")
                     }
                 });
                 expandedSelect.items.first().set("value", null, true);
@@ -262,8 +276,9 @@
                 overlay.collision = Coral.Overlay.collision.NONE;
             }
         }
+    }
 
-        // adds a sufficient padding to the bottom of the wrapper such that selects
+    // adds a sufficient padding to the bottom of the wrapper such that selects
         // have a guaranteed space to expand into.
         if (selects.length) {
             var field = selects[0].parentNode;

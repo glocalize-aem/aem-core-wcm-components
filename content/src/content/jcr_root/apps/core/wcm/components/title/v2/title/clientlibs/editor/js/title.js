@@ -12,8 +12,7 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- ******************************************************************************/
-/**
+ ******************************************************************************//**
  * Design dialog:
  * - The options of the select field to define the default value are added/removed based on the status
  * of the size checkboxes
@@ -55,8 +54,8 @@
         $checkboxes.each(function(i, checkbox) {
             if (checkbox.checked) {
                 var newItem = new Coral.Select.Item();
-                newItem.content.textContent = checkbox.label.innerHTML;
-                newItem.value = checkbox.value;
+                newItem.content.textContent = Granite.I18n.getVar(checkbox.label.innerHTML);
+                newItem.value = Granite.I18n.getVar(checkbox.value);
                 select.items.add(newItem);
                 checkedTotal++;
             }
@@ -106,8 +105,14 @@
             return firstCheckedValue;
         }
     }
+Result After Localization:
+----------------
+Format the output in JSON format with following structure, only include the changes done by you.
+  code: Full Fixed Code
 
-    // toggles the disable attribute of the Link Label and Link Title Attribute inputs, based on the Link Url existence
+
+Remember, preserving the original indentation, spaces, extra lines, and comments starting with // or /* is very very important. Additionally, ensure that the last line of the code remains unchanged.
+// toggles the disable attribute of the Link Label and Link Title Attribute inputs, based on the Link Url existence
     function toggleDisableAttributeOnLinkLabelAndTitleInputs() {
         $(LINK_LABEL_SELECTOR).prop("disabled", !$(LINK_URL_SELECTOR).val());
         $(LINK_TITLE_SELECTOR).prop("disabled", !$(LINK_URL_SELECTOR).val());
@@ -195,9 +200,7 @@
                 } else {
                     return;
                 }
-            }
-
-            // set the validation status on the first checkbox
+            }// set the validation status on the first checkbox
             isValid = false;
             $checkboxes.each(function(i, checkbox) {
                 if (checkbox.checked) {
@@ -223,7 +226,7 @@
             var error = $el.data("foundation-validation.internal.error");
 
             if (error) {
-                error.content.innerHTML = message;
+                error.content.innerHTML = Granite.I18n.get(message);
 
                 if (!error.parentNode) {
                     $el.after(error);
@@ -235,7 +238,7 @@
                 error.interaction = "off";
                 error.placement = "bottom";
                 error.target = el;
-                error.content.innerHTML = message;
+                error.content.innerHTML = Granite.I18n.get(message);
                 error.open = true;
                 error.id = Coral.commons.getUID();
 
