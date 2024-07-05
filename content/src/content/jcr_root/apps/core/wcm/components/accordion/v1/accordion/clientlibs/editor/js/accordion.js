@@ -190,7 +190,7 @@
                 expandedSelect.items.add({
                     selected: (selectedValues.length === 0),
                     content: {
-                        textContent: Granite.I18n.get("None")
+                        textContent: "None"
                     }
                 });
                 expandedSelect.items.first().set("value", null, true);
