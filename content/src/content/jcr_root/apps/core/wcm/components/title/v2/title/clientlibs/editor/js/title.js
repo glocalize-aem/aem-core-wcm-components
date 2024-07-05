@@ -55,8 +55,8 @@
         $checkboxes.each(function(i, checkbox) {
             if (checkbox.checked) {
                 var newItem = new Coral.Select.Item();
-                newItem.content.textContent = checkbox.label.innerHTML;
-                newItem.value = checkbox.value;
+                newItem.content.textContent = Granite.I18n.getVar(checkbox.label.innerHTML);
+                newItem.value = Granite.I18n.getVar(checkbox.value);
                 select.items.add(newItem);
                 checkedTotal++;
             }
@@ -191,7 +191,7 @@
             if (validationDone) {
                 $(firstEl).removeData(DATA_ATTR_VALIDATION_STATE);
                 if (!isValid) {
-                    return "Select at least one size option.";
+                    return Granite.I18n.getVar("Select at least one size option.");
                 } else {
                     return;
                 }
