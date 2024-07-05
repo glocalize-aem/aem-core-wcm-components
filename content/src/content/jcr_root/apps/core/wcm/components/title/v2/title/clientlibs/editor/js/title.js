@@ -27,14 +27,14 @@
 (function($, Granite, ns, $document) {
     "use strict";
 
-    var DEFAULT_SIZE_SELECTOR       = "coral-select.core-title-size-default";
-    var DEFAULT_SIZES_SELECTOR      = "coral-select.core-title-sizes-default";
-    var ALLOWED_SIZES_SELECTOR      = ".core-title-sizes-allowed coral-checkbox";
-    var DATA_ATTR_VALIDATION_STATE  = "checkboxes.validation.state";
-    var SIZES_SELECTOR              = "coral-select.core-title-sizes";
-    var LINK_URL_SELECTOR           = ".cmp-title-link-url";
-    var LINK_LABEL_SELECTOR         = ".cmp-title-link-label";
-    var LINK_TITLE_SELECTOR         = ".cmp-title-link-title";
+    var DEFAULT_SIZE_SELECTOR = Granite.I18n.get("coral-select.core-title-size-default");
+    var DEFAULT_SIZES_SELECTOR = Granite.I18n.get("coral-select.core-title-sizes-default");
+    var ALLOWED_SIZES_SELECTOR = ".core-title-sizes-allowed coral-checkbox";
+    var DATA_ATTR_VALIDATION_STATE = "checkboxes.validation.state";
+    var SIZES_SELECTOR = Granite.I18n.get("coral-select.core-title-sizes");
+    var LINK_URL_SELECTOR = ".cmp-title-link-url";
+    var LINK_LABEL_SELECTOR = ".cmp-title-link-label";
+    var LINK_TITLE_SELECTOR = ".cmp-title-link-title";
 
     // Update the select field that defines the default value
     function updateDefaultSizeSelect(checkboxToggled) {
@@ -191,7 +191,7 @@
             if (validationDone) {
                 $(firstEl).removeData(DATA_ATTR_VALIDATION_STATE);
                 if (!isValid) {
-                    return "Select at least one size option.";
+                    return Granite.I18n.get("Select at least one size option.");
                 } else {
                     return;
                 }
