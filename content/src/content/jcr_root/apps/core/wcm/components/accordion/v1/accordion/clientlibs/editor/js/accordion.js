@@ -17,18 +17,18 @@
     "use strict";
 
     var selectors = {
-        dialogContent: ".cmp-accordion__editor",
+        dialogContent: Granite.I18n.get(".cmp-accordion__editor"),
         edit: {
-            childrenEditor: "[data-cmp-is='childrenEditor']",
-            singleExpansion: "[data-cmp-accordion-v1-dialog-edit-hook='singleExpansion']",
-            expandedItems: "[data-cmp-accordion-v1-dialog-edit-hook='expandedItems']",
-            expandedSelect: "[data-cmp-accordion-v1-dialog-edit-hook='expandedSelect']",
-            expandedSelectSingle: "[data-cmp-accordion-v1-dialog-edit-hook='expandedSelectSingle']",
-            headingElement: "[data-cmp-accordion-v1-dialog-edit-hook='headingElement']"
+            childrenEditor: Granite.I18n.get("[data-cmp-is='childrenEditor']"),
+            singleExpansion: Granite.I18n.get("[data-cmp-accordion-v1-dialog-edit-hook='singleExpansion']"),
+            expandedItems: Granite.I18n.get("[data-cmp-accordion-v1-dialog-edit-hook='expandedItems']"),
+            expandedSelect: Granite.I18n.get("[data-cmp-accordion-v1-dialog-edit-hook='expandedSelect']"),
+            expandedSelectSingle: Granite.I18n.get("[data-cmp-accordion-v1-dialog-edit-hook='expandedSelectSingle']"),
+            headingElement: Granite.I18n.get("[data-cmp-accordion-v1-dialog-edit-hook='headingElement']")
         },
         policy: {
-            allowedHeadingElements: "[data-cmp-accordion-v1-dialog-policy-hook='allowedHeadingElements']",
-            headingElement: "[data-cmp-accordion-v1-dialog-policy-hook='headingElement']"
+            allowedHeadingElements: Granite.I18n.get("[data-cmp-accordion-v1-dialog-policy-hook='allowedHeadingElements']"),
+            headingElement: Granite.I18n.get("[data-cmp-accordion-v1-dialog-policy-hook='headingElement']")
         }
     };
 
@@ -44,9 +44,9 @@
             if ($dialogContent) {
                 var accordionEditor = $dialogContent.length > 0 ? $dialogContent[0] : undefined;
                 if (accordionEditor) {
-                    if (accordionEditor.querySelector("[data-cmp-accordion-v1-dialog-edit-hook]")) {
+                    if (accordionEditor.querySelector(selectors.edit.childrenEditor)) {
                         handleEditDialog(accordionEditor);
-                    } else if (accordionEditor.querySelector("[data-cmp-accordion-v1-dialog-policy-hook]")) {
+                    } else if (accordionEditor.querySelector(selectors.policy.allowedHeadingElements)) {
                         handlePolicyDialog(accordionEditor);
                     }
                 }
@@ -190,7 +190,7 @@
                 expandedSelect.items.add({
                     selected: (selectedValues.length === 0),
                     content: {
-                        textContent: "None"
+                        textContent: Granite.I18n.get("None")
                     }
                 });
                 expandedSelect.items.first().set("value", null, true);
