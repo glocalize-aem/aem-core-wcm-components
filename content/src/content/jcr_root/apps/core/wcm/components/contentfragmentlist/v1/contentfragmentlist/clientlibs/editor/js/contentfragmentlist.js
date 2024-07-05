@@ -30,12 +30,12 @@
     var ui = $(window).adaptTo("foundation-ui");
 
     // dialog texts
-    var confirmationDialogTitle = Granite.I18n.get("Warning");
-    var confirmationDialogMessage = Granite.I18n.get("Please confirm replacing the current content fragment list and its configuration");
-    var confirmationDialogCancel = Granite.I18n.get("Cancel");
-    var confirmationDialogConfirm = Granite.I18n.get("Confirm");
-    var errorDialogTitle = Granite.I18n.get("Error");
-    var errorDialogMessage = Granite.I18n.get("Failed to load the elements of the selected content fragment");
+    var confirmationDialogTitle = "Warning";
+    var confirmationDialogMessage = "Please confirm replacing the current content fragment list and its configuration";
+    var confirmationDialogCancel = "Cancel";
+    var confirmationDialogConfirm = "Confirm";
+    var errorDialogTitle = "Error";
+    var errorDialogMessage = "Failed to load the elements of the selected content fragment";
 
     // the model path field
     var modelPath;

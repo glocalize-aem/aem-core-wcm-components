@@ -18,7 +18,7 @@
     "use strict";
     var placeholderClass = "cq-placeholder";
     var newComponentClass = "new";
-    var newComponentPlaceholderText = Granite.I18n.get("Drag components here");
+    var newComponentPlaceholderText = "Drag components here";
 
     /**
      * Indicates if the Inspectable has a placeholder element
@@ -36,7 +36,7 @@
             if (editableEl.length > 0) {
                 var placeholderHint = editableEl.data("placeholder-text");
                 if (placeholderHint) {
-                    return Granite.I18n.get(placeholderHint);
+                    return placeholderHint;
                 }
             }
             return newComponentPlaceholderText;
@@ -67,7 +67,8 @@
             }
         }
 
-        return placeholder && placeholder.length ? Granite.I18n.getVar(placeholder.data("emptytext")) : false;
+        return placeholder && placeholder.length ? placeholder.data("emptytext") : false;
+        return placeholder && placeholder.length ? placeholder.data("emptytext") : false;
     };
 
 }(jQuery, Granite.author, jQuery(document)));
