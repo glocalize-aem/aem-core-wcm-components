@@ -55,8 +55,8 @@
         $checkboxes.each(function(i, checkbox) {
             if (checkbox.checked) {
                 var newItem = new Coral.Select.Item();
-                newItem.content.textContent = checkbox.label.innerHTML;
-                newItem.value = checkbox.value;
+                newItem.content.textContent = Granite.I18n.getVar(checkbox.label.innerHTML);
+                newItem.value = Granite.I18n.getVar(checkbox.value);
                 select.items.add(newItem);
                 checkedTotal++;
             }
