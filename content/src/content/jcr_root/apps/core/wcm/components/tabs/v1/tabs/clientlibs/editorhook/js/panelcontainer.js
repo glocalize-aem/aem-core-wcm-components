@@ -20,11 +20,11 @@
         if (window.CQ && window.CQ.CoreComponents && window.CQ.CoreComponents.panelcontainer &&
             window.CQ.CoreComponents.panelcontainer.v1 && window.CQ.CoreComponents.panelcontainer.v1.registry) {
             window.CQ.CoreComponents.panelcontainer.v1.registry.register({
-                name: "cmp-tabs",
-                selector: ".cmp-tabs",
-                wrapperSelector: '[data-panelcontainer="tabs"]',
-                itemSelector: "[data-cmp-hook-tabs='tabpanel']",
-                itemActiveSelector: ".cmp-tabs__tabpanel--active"
+                name: Granite.I18n.get("cmp-tabs"),
+                selector: Granite.I18n.get(".cmp-tabs"),
+                wrapperSelector: Granite.I18n.get('[data-panelcontainer="tabs"]'),
+                itemSelector: Granite.I18n.get("[data-cmp-hook-tabs='tabpanel']"),
+                itemActiveSelector: Granite.I18n.get(".cmp-tabs__tabpanel--active")
             });
         }
     });
