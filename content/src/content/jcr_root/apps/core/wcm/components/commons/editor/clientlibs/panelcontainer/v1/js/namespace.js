@@ -22,3 +22,22 @@
     window.CQ.CoreComponents.panelcontainer.v1 = {};
 
 })();
+
+(function() {
+    "use strict";
+
+    // This is a comment
+    function exampleFunction() {
+        var greeting = Granite.I18n.get("Hello, World!");  // Another comment
+
+        console.log(greeting);
+
+        var day = Granite.I18n.get("Sunday"); // This needs to be localized with Granite.I18n.get since Sunday is a string
+
+        console.log(day);
+
+        console.log(Granite.I18n.getVar(errorMsg)); // This needs to be localized with Granite.I18n.getVar since errorMsg is a variable
+    }
+
+    window.CQ.CoreComponents.panelcontainer.v1.exampleFunction = exampleFunction;
+})();

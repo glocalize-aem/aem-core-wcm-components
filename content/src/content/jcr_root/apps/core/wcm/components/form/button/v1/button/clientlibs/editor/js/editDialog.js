@@ -16,21 +16,20 @@
 (function($) {
     "use strict";
 
-    var BUTTON_NAME = ".cmp-button--editor-name";
-    var BUTTON_VALUE = ".cmp-button--editor-value";
-    var PROP_ERROR_MESSAGE = "error-message";
+    var BUTTON_NAME = Granite.I18n.get('.cmp-button--editor-name');
+    var BUTTON_VALUE = Granite.I18n.get('.cmp-button--editor-value');
+    var PROP_ERROR_MESSAGE = Granite.I18n.get('error-message');
 
     $.validator.register({
         selector: BUTTON_NAME,
         validate: function(el) {
-            var valueInput = el.closest("form").find(BUTTON_VALUE);
-            if (valueInput.val() !== "") {
-                if (el.val() === "") {
-                    return el.data(PROP_ERROR_MESSAGE);
+            var valueInput = el.closest('form').find(BUTTON_VALUE);
+            if (valueInput.val() !== '') {
+                if (el.val() === '') {
+                    return Granite.I18n.getVar(PROP_ERROR_MESSAGE);
                 }
             }
         }
     });
 
 })(jQuery);
-

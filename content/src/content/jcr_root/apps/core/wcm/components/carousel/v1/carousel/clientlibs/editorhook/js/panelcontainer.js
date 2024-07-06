@@ -20,12 +20,12 @@
         if (window.CQ && window.CQ.CoreComponents && window.CQ.CoreComponents.panelcontainer &&
             window.CQ.CoreComponents.panelcontainer.v1 && window.CQ.CoreComponents.panelcontainer.v1.registry) {
             window.CQ.CoreComponents.panelcontainer.v1.registry.register({
-                name: "cmp-carousel",
-                selector: ".cmp-carousel",
-                wrapperSelector: '[data-panelcontainer="carousel"]',
-                itemSelector: "[data-cmp-hook-carousel='item']",
-                itemActiveSelector: ".cmp-carousel__item--active",
-                itemSelectorWrapper: ".cmp-carousel__content"
+                name: Granite.I18n.get('cmp-carousel'),
+                selector: Granite.I18n.get('.cmp-carousel'),
+                wrapperSelector: Granite.I18n.get('[data-panelcontainer="carousel"]'),
+                itemSelector: Granite.I18n.get('[data-cmp-hook-carousel="item"]'),
+                itemActiveSelector: Granite.I18n.get('.cmp-carousel__item--active'),
+                itemSelectorWrapper: Granite.I18n.get('.cmp-carousel__content')
             });
         }
     });

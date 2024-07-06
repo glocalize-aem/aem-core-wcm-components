@@ -21,7 +21,7 @@
     var IS_DASH = "form-text";
 
     var selectors = {
-        self: "[data-" + NS + '-is="' + IS + '"]'
+        self: "[data-" + NS + '-is="' + IS + '"]"
     };
 
     var properties = {
@@ -30,13 +30,13 @@
          *
          * @type {String}
          */
-        constraintMessage: "",
+        constraintMessage: Granite.I18n.getVar(""),
         /**
          * A validation message to display if no input is supplied, but input is expected for the field.
          *
          * @type {String}
          */
-        requiredMessage: ""
+        requiredMessage: Granite.I18n.getVar("")
     };
 
     function readData(element) {

@@ -20,12 +20,12 @@
         if (window.CQ && window.CQ.CoreComponents && window.CQ.CoreComponents.panelcontainer &&
             window.CQ.CoreComponents.panelcontainer.v1 && window.CQ.CoreComponents.panelcontainer.v1.registry) {
             window.CQ.CoreComponents.panelcontainer.v1.registry.register({
-                name: "cmp-accordion",
-                selector: ".cmp-accordion",
-                wrapperSelector: '[data-panelcontainer="accordion"]',
-                itemSelector: "[data-cmp-hook-accordion='panel']",
-                itemActiveSelector: "[data-cmp-hook-accordion='item'][data-cmp-expanded] [data-cmp-hook-accordion='panel']",
-                itemSelectorWrapper: ".cmp-accordion__item"
+                name: Granite.I18n.get('cmp-accordion'),
+                selector: Granite.I18n.get('.cmp-accordion'),
+                wrapperSelector: Granite.I18n.get('[data-panelcontainer="accordion"]'),
+                itemSelector: Granite.I18n.get('[data-cmp-hook-accordion="panel"]'),
+                itemActiveSelector: Granite.I18n.get('[data-cmp-hook-accordion="item"][data-cmp-expanded] [data-cmp-hook-accordion="panel"]'),
+                itemSelectorWrapper: Granite.I18n.get('.cmp-accordion__item')
             });
         }
     });
