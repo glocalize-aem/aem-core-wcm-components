@@ -16,10 +16,10 @@
 (function($, Coral) {
     "use strict";
 
-    var dialogContentSelector = ".cmp-tabs__editor";
-    var childreneditorSelector = "[data-cmp-is='childrenEditor']";
-    var activeItemSelector = "[data-cmp-tabs-v1-dialog-edit-hook='activeItem']";
-    var activeSelectSelector = "[data-cmp-tabs-v1-dialog-edit-hook='activeSelect']";
+    var dialogContentSelector = Granite.I18n.get(".cmp-tabs__editor");
+    var childreneditorSelector = Granite.I18n.get("[data-cmp-is='childrenEditor']");
+    var activeItemSelector = Granite.I18n.get("[data-cmp-tabs-v1-dialog-edit-hook='activeItem']");
+    var activeSelectSelector = Granite.I18n.get("[data-cmp-tabs-v1-dialog-edit-hook='activeSelect']");
 
     $(document).on("dialog-loaded", function(e) {
         var $dialog = e.dialog;
