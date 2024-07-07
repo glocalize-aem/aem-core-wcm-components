@@ -69,7 +69,7 @@
                         selected: item.name === selectedValue,
                         value: item.name,
                         content: {
-                            textContent: item.description
+                            textContent: Granite.I18n.getVar(item.description)
                         }
                     });
                 });
