@@ -40,7 +40,7 @@
         if (linkAccessibilityText) {
             var linkAccessibilityElement = document.createElement("span");
             linkAccessibilityElement.classList.add(linkAccessibilityClass);
-            linkAccessibilityElement.innerText = linkAccessibilityText;
+            linkAccessibilityElement.innerText = Granite.I18n.getVar(linkAccessibilityText);
             document.querySelectorAll("a[target='_blank']").forEach(function(link) {
                 if (!link.querySelector(selectors.linkAccessibility)) {
                     link.insertAdjacentElement("beforeend", linkAccessibilityElement);
