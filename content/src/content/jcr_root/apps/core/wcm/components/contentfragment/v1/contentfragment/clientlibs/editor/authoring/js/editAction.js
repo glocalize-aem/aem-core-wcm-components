@@ -17,9 +17,9 @@
     "use strict";
 
     // class of the content fragment
-    var CLASS_CONTENTFRAGMENT = "cmp-contentfragment";
+    var CLASS_CONTENTFRAGMENT = Granite.I18n.getVar("cmp-contentfragment");
     // name of the attribute on the content fragment storing its path
-    var ATTRIBUTE_PATH = "data-cmp-contentfragment-path";
+    var ATTRIBUTE_PATH = Granite.I18n.getVar("data-cmp-contentfragment-path");
     // base URL of the editor
     var EDITOR_URL = "/editor.html";
 
@@ -49,6 +49,6 @@
 
     });
 
-    ns.editor.register("contentfragment", new ContentFragmentEditor());
+    ns.editor.register(Granite.I18n.getVar("contentfragment"), new ContentFragmentEditor());
 
 })(jQuery, Granite.author);
