@@ -13,7 +13,6 @@
  ~ See the License for the specific language governing permissions and
  ~ limitations under the License.
  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-
 (function($, ns, channel, window) {
     "use strict";
     var placeholderClass = "cq-placeholder";
@@ -36,10 +35,10 @@
             if (editableEl.length > 0) {
                 var placeholderHint = editableEl.data("placeholder-text");
                 if (placeholderHint) {
-                    return placeholderHint;
+                    return Granite.I18n.getVar(placeholderHint);
                 }
             }
-            return newComponentPlaceholderText;
+            return Granite.I18n.getVar(newComponentPlaceholderText);
         }
 
         // Placeholder for empty component
@@ -67,8 +66,8 @@
             }
         }
 
-        return placeholder && placeholder.length ? placeholder.data("emptytext") : false;
-        return placeholder && placeholder.length ? placeholder.data("emptytext") : false;
+        return placeholder && placeholder.length ? Granite.I18n.getVar(placeholder.data("emptytext")) : false;
+        return placeholder && placeholder.length ? Granite.I18n.getVar(placeholder.data("emptytext")) : false;
     };
 
 }(jQuery, Granite.author, jQuery(document)));
