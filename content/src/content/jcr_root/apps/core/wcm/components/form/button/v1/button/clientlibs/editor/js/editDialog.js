@@ -16,9 +16,9 @@
 (function($) {
     "use strict";
 
-    var BUTTON_NAME = ".cmp-button--editor-name";
-    var BUTTON_VALUE = ".cmp-button--editor-value";
-    var PROP_ERROR_MESSAGE = "error-message";
+    var BUTTON_NAME = Granite.I18n.getVar(".cmp-button--editor-name");
+    var BUTTON_VALUE = Granite.I18n.getVar(".cmp-button--editor-value");
+    var PROP_ERROR_MESSAGE = Granite.I18n.getVar("error-message");
 
     $.validator.register({
         selector: BUTTON_NAME,
@@ -33,4 +33,3 @@
     });
 
 })(jQuery);
-
