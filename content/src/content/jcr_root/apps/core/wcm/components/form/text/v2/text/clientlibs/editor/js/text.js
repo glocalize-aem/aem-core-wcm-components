@@ -53,11 +53,11 @@
         var component = dialog.find(TEXTFIELD_TYPES)[0];
         var textfieldRows = dialog.find(TEXTFIELD_ROWS);
         checkAndDisplay(textfieldRows,
-            "textarea",
+            Granite.I18n.getVar("textarea"),
             component.value);
         component.on("change", function() {
             checkAndDisplay(textfieldRows,
-                "textarea",
+                Granite.I18n.getVar("textarea"),
                 component.value);
         });
     }
@@ -72,12 +72,12 @@
     function handleConstraintMessage(dialog) {
         var component = dialog.find(TEXTFIELD_TYPES)[0];
         var constraintMessage = dialog.find(TEXTFIELD_CONSTRAINTMESSAGE);
-        var displayConstraintMessage = component.value !== "text" && component.value !== "textarea";
+        var displayConstraintMessage = component.value !== Granite.I18n.getVar("text") && component.value !== Granite.I18n.getVar("textarea");
         checkAndDisplay(constraintMessage,
             true,
             displayConstraintMessage);
         component.on("change", function() {
-            displayConstraintMessage = this.value !== "text" && this.value !== "textarea";
+            displayConstraintMessage = this.value !== Granite.I18n.getVar("text") && this.value !== Granite.I18n.getVar("textarea");
             checkAndDisplay(constraintMessage,
                 true,
                 displayConstraintMessage);
