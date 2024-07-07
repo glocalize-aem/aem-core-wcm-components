@@ -62,7 +62,7 @@
                 }
             });
             if (idCount > 0) {
-                return "This ID already exist on the page, please enter a unique ID.";
+                return Granite.I18n.get("This ID already exist on the page, please enter a unique ID.");
             }
         }
     });
