@@ -26,11 +26,10 @@
             var valueInput = el.closest("form").find(BUTTON_VALUE);
             if (valueInput.val() !== "") {
                 if (el.val() === "") {
-                    return el.data(PROP_ERROR_MESSAGE);
+                    return Granite.I18n.getVar(el.data(PROP_ERROR_MESSAGE));
                 }
             }
         }
     });
 
 })(jQuery);
-
