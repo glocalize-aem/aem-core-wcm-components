@@ -183,7 +183,7 @@
                     "itemOrder": ordered.join()
                 }
             });
-        }
+        },
 
         /**
          * Triggered when the Panel Container has navigated.
