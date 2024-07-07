@@ -13,57 +13,6 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  **************************************************************************/
-(function($, window, document) {
-    "use strict";
-    /* Adapting window object to foundation-registry */
-    var registry = $(window).adaptTo("foundation-registry");
-
-    /* Validator for TextField - Validation for duplicate HTML ID authored through dialog */
-    registry.register("foundation.validation.validator", {
-        selector: "[data-validation=html-unique-id-validator]",
-        validate: function(el) {
-            var compPath = $(el.closest("form")).attr("action");
-            var pagePath = compPath.split("/_jcr_content")[0];
-            var preConfiguredVal;
-            /* Get the pre configured value if any */
-            $.ajax({
-                type: "GET",
-                url: compPath + ".json",
-                dataType: "json",
-                async: false,
-                success: function(data) {
-                    if (data) {
-                        preConfiguredVal = data.id;
-                    }
-                }
-            });
-            var element = $(el);
-            var currentVal = element.val();
-            /* Handle empty values or dialog re-submission */
-            if (!currentVal || currentVal === preConfiguredVal) {
-                return;
-            }
-            var url = pagePath + ".html?wcmmode=disabled";
-            var idCount = 0;
-            /* Check if same ID already exist on the page */
-            $.ajax({
-                type: "GET",
-                url: url,
-                dataType: "html",
-                async: false,
-                success: function(data) {
-                    var idList;
-                    if (data) {
-                        idList = $(data).find("[id='" + currentVal + "']");
-                        if (idList) {
-                            idCount = idList.length;
-                        }
-                    }
-                }
-            });
-            if (idCount > 0) {
-                return "This ID already exist on the page, please enter a unique ID.";
-            }
-        }
-    });
-})($, window, document);
+var confirmationDialogTitle = Granite.I18n.get('Warning');
+var confirmationDialogMessage = Granite.I18n.get('Please confirm replacing the current content fragment and its configuration');
+var confirmationDialogCancel = Granite.I18n.get('Cancel');

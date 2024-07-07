@@ -13,52 +13,6 @@
  ~ See the License for the specific language governing permissions and
  ~ limitations under the License.
  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-(function($) {
-    "use strict";
-
-    var DIALOG_CONTENT_SELECTOR = ".cmp-navigation__editor";
-    var COLLECT_ALL_PAGES_SELECTOR = DIALOG_CONTENT_SELECTOR + ' coral-checkbox[name="./collectAllPages"]';
-    var STRUCTURE_DEPTH_SELECTOR = DIALOG_CONTENT_SELECTOR + ' coral-numberinput[name="./structureDepth"]';
-
-    $(window).adaptTo("foundation-registry").register("foundation.adapters", {
-        type: "foundation-toggleable",
-        selector: STRUCTURE_DEPTH_SELECTOR,
-        adapter: function(el) {
-            var toggleable = $(el);
-            return {
-                isOpen: function() {
-                    return !toggleable.adaptTo("foundation-field").isDisabled();
-                },
-                show: function() {
-                    toggleable.adaptTo("foundation-field").setDisabled(false);
-                    toggleable.parent().show();
-                },
-                hide: function() {
-                    toggleable.adaptTo("foundation-field").setDisabled(true);
-                    toggleable.parent().hide();
-                }
-            };
-        }
-    });
-
-    function toggleStructureDepth(collectAllPages) {
-        if (collectAllPages) {
-            Coral.commons.ready(document.querySelector(STRUCTURE_DEPTH_SELECTOR), function(structureDepth) {
-                if (collectAllPages.checked) {
-                    $(structureDepth).adaptTo("foundation-toggleable").hide();
-                } else {
-                    $(structureDepth).adaptTo("foundation-toggleable").show();
-                }
-            });
-        }
-    }
-
-    $(document).on("dialog-loaded", function() {
-        toggleStructureDepth(document.querySelector(COLLECT_ALL_PAGES_SELECTOR));
-    });
-
-    $(document).on("change", COLLECT_ALL_PAGES_SELECTOR, function() {
-        toggleStructureDepth(this);
-    });
-
-})(jQuery);
+var confirmationDialogTitle = Granite.I18n.get('Warning');
+var confirmationDialogMessage = Granite.I18n.get('Please confirm replacing the current content fragment and its configuration');
+var confirmationDialogCancel = Granite.I18n.get('Cancel');

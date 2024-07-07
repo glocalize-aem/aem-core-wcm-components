@@ -13,44 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  ******************************************************************************/
-(function() {
-    "use strict";
-
-    function documentReady(fn) {
-        if (document.readyState !== "loading") {
-            fn();
-        } else {
-            document.addEventListener("DOMContentLoaded", fn);
-        }
-    }
-
-    var INPUT_FIELD = ".cmp-form-field input";
-    var REQUIRED_MSG_ATTRIBUTE = "data-cmp-required";
-    var CONSTRAINT_MSG_ATTRIBUTE = "data-cmp-constraint";
-
-    documentReady(function() {
-        var inputFields = document.querySelectorAll(INPUT_FIELD);
-        var inputField;
-        var index;
-
-        for (index = 0; index < inputFields.length; index++) {
-            inputField = inputFields[index];
-            inputField.addEventListener("invalid", function(e) {
-                e.target.setCustomValidity("");
-                if (e.target.validity.typeMismatch) {
-                    if (inputField.hasAttribute(CONSTRAINT_MSG_ATTRIBUTE)) {
-                        e.target.setCustomValidity(inputField.getAttribute(CONSTRAINT_MSG_ATTRIBUTE));
-                    }
-                } else if (e.target.validity.valueMissing) {
-                    if (inputField.hasAttribute(REQUIRED_MSG_ATTRIBUTE)) {
-                        e.target.setCustomValidity(inputField.getAttribute(REQUIRED_MSG_ATTRIBUTE));
-                    }
-                }
-            });
-            inputField.addEventListener("input", function(e) {
-                e.target.setCustomValidity("");
-            });
-        }
-    });
-
-})();
+var confirmationDialogTitle = Granite.I18n.get('Warning');
+var confirmationDialogMessage = Granite.I18n.get('Please confirm replacing the current content fragment and its configuration');
+var confirmationDialogCancel = Granite.I18n.get('Cancel');

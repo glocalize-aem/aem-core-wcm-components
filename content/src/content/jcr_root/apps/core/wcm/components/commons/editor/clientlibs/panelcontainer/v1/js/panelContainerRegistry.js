@@ -14,61 +14,6 @@
  ~ limitations under the License.
  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /* global Map, CQ */
-(function() {
-    "use strict";
-
-    var registry = new Map();
-
-    /**
-     * @typedef {Object} PanelContainerTypeConfig Represents a Panel Container Type configuration object
-     * @property {String} name Name of the Panel Container Type
-     * @property {String} selector Selector for identifying components representing this type. Lookup is made against the wrapper element or its children.
-     * @property {String} itemSelector Selector for child items of components representing this type
-     * @property {String} itemActiveSelector Selector for the active child item of components representing this type
-     */
-
-    /**
-     * Panel Container Registry
-     *
-     * @namespace
-     * @alias CQ.CoreComponents.panelcontainer.v1.registry
-     * @type {{}}
-     */
-    CQ.CoreComponents.panelcontainer.v1.registry = {
-
-        /**
-         * Registers a Panel Container Type definition by name to the registry
-         *
-         * @param {PanelContainerTypeConfig} panelContainerType The panel container type definition
-         */
-        register: function(panelContainerType) {
-            if (panelContainerType !== null && typeof panelContainerType === "object" && panelContainerType.name) {
-                registry.set(panelContainerType.name, panelContainerType);
-            }
-        },
-
-        /**
-         * Returns a panel container definition by name from the registry
-         *
-         * @param {String} name The panel container name
-         * @returns {Object} The found panel container definition, undefined otherwise
-         */
-        get: function(name) {
-            return registry.get(name);
-        },
-
-        /**
-         * Returns all registered panel container definitions
-         *
-         * @returns {Array} An Array of registered panel container definitions
-         */
-        getAll: function() {
-            var values = [];
-            registry.forEach(function(value, key, map) {
-                values.push(value);
-            });
-            return values;
-        }
-    };
-
-})();
+var confirmationDialogTitle = Granite.I18n.get('Warning');
+var confirmationDialogMessage = Granite.I18n.get('Please confirm replacing the current content fragment and its configuration');
+var confirmationDialogCancel = Granite.I18n.get('Cancel');

@@ -13,48 +13,6 @@
  ~ See the License for the specific language governing permissions and
  ~ limitations under the License.
  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-(function() {
-    "use strict";
-
-    var animationDuration = 200;
-    var delay = 2000;
-
-    var states = {
-        'NOTICE': 'notice',
-        'SUCCESS': 'success',
-        'ERROR': 'error',
-        'WARNING': 'warning'
-    };
-
-    // font awesome icon key to state map
-    var stateIconMap = {
-        'notice': 'info-circle',
-        'success': 'check',
-        'error': 'frown-open',
-        'warning': 'exclamation-triangle'
-    };
-
-    window.CmpExamples.Notification = window.CmpExamples.Notification || {};
-
-    window.CmpExamples.Notification.show = function(text, state) {
-        state = (!state) ? states.NOTICE : state;
-        state = state.toLowerCase();
-
-        var notification = document.createElement('div');
-        var stateCssClass = 'cmp-examples-notification--' + state;
-        notification.classList.add('cmp-examples-notification');
-        notification.classList.add(stateCssClass);
-        notification.innerHTML = '<i class="cmp-examples-notification__icon fas fa-' + stateIconMap[state] + '"></i><span class="cmp-examples-notification__text">' + text + '</span>';
-        document.body.appendChild(notification);
-
-        window.setTimeout(function() {
-            notification.classList.add('cmp-examples-notification--out');
-            window.setTimeout(function() {
-                notification.parentNode.removeChild(notification);
-            }, animationDuration);
-        }, delay);
-    };
-
-    window.CmpExamples.Notification.state = states;
-
-})();
+var confirmationDialogTitle = Granite.I18n.get('Warning');
+var confirmationDialogMessage = Granite.I18n.get('Please confirm replacing the current content fragment and its configuration');
+var confirmationDialogCancel = Granite.I18n.get('Cancel');

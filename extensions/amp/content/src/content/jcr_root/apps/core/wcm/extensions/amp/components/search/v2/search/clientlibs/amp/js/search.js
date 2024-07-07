@@ -13,50 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  ******************************************************************************/
-(function() {
-    "use strict";
-    window.onload = updateSearchResultsStatusMessageElement;
-
-    var selectors = {
-        searchComponent: ".cmp-search",
-        searchInput: ".cmp-search__input",
-        searchResultsContainer: ".i-amphtml-autocomplete-results",
-        itemInSearchResults: ".i-amphtml-autocomplete-item",
-        searchResultsStatusMessage: ".cmp_search__info"
-    };
-
-    function updateSearchResultsStatusMessageElement() {
-        var observer = new MutationObserver(function(mutations) {
-            mutations.forEach(function(mutation) {
-                var mutatedSearchComponent = mutation.target.closest(selectors.searchComponent);
-                if (mutatedSearchComponent) {
-                    var searchResultsContainer = mutatedSearchComponent.querySelector(selectors.searchResultsContainer);
-                    var searchInput = mutatedSearchComponent.querySelector(selectors.searchInput);
-                    var searchResultsStatusMessage = mutatedSearchComponent.querySelector(selectors.searchResultsStatusMessage);
-                    if (searchResultsContainer && searchInput && searchResultsStatusMessage) {
-                        if (!searchInput.value || searchResultsContainer.hasAttribute("hidden")) {
-                            searchResultsStatusMessage.innerText = "";
-                        } else {
-                            var numberOfResults = searchResultsContainer.querySelectorAll(selectors.itemInSearchResults);
-                            var searchResultsFoundMessage = numberOfResults.length === 1 ? numberOfResults.length + " result" : numberOfResults.length + " results";
-                            var searchResultsNotFoundMessage = "No results";
-                            searchResultsStatusMessage.innerText = numberOfResults.length ? searchResultsFoundMessage : searchResultsNotFoundMessage;
-                        }
-                    }
-                }
-            });
-        });
-        var searchComponents = document.querySelectorAll(selectors.searchComponent);
-        if (searchComponents.length) {
-            for (var i = 0; i < searchComponents.length; i++) {
-                var searchResultsContainer = searchComponents[i].querySelector(selectors.searchResultsContainer);
-                observer.observe(searchResultsContainer, {
-                    attributes: true,
-                    attributeFilter: ["hidden"],
-                    subtree: true,
-                    childList: true
-                });
-            }
-        }
-    }
-})();
+var confirmationDialogTitle = Granite.I18n.get('Warning');
+var confirmationDialogMessage = Granite.I18n.get('Please confirm replacing the current content fragment and its configuration');
+var confirmationDialogCancel = Granite.I18n.get('Cancel');

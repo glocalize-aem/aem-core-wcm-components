@@ -13,62 +13,6 @@
  ~ See the License for the specific language governing permissions and
  ~ limitations under the License.
  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-
-(function($, ns, channel, window) {
-    "use strict";
-    var placeholderClass = "cq-placeholder";
-    var newComponentClass = "new";
-    var newComponentPlaceholderText = "Drag components here";
-
-    /**
-     * Indicates if the Inspectable has a placeholder element
-     * @returns {*} Returns the placeholder string or false if no placeholder exists
-     */
-    ns.Inspectable.prototype.hasPlaceholder = function() {
-        if (!this.onPage()) {
-            return false;
-        }
-
-        // New component placeholder (drag components here)
-        if (this.dom.hasClass(newComponentClass)) {
-            // return newComponentPlaceholderText
-            var editableEl = this.dom.parents(".cq-Editable-dom[data-placeholder-text],.cq-Editable-dom [data-placeholder-text]").first();
-            if (editableEl.length > 0) {
-                var placeholderHint = editableEl.data("placeholder-text");
-                if (placeholderHint) {
-                    return placeholderHint;
-                }
-            }
-            return newComponentPlaceholderText;
-        }
-
-        // Placeholder for empty component
-        var placeholder;
-        if (this.dom.hasClass(placeholderClass)) {
-            // The dom is directly marked as placeholder
-            placeholder = this.dom;
-        } else {
-            // The dom isn't marked as placeholder, but it might contain a nested placeholder
-            // when the inspectable is a drop target or is inplace editable
-            if (this.config.editConfig &&
-                (this.config.editConfig.dropTarget || this.config.editConfig.inplaceEditingConfig)) {
-
-                var inspectable = this;
-                placeholder = inspectable.dom
-                    .find("." + placeholderClass)
-                    .filter(function() {
-                        // Filter out nested placeholders that are part of another inspectable
-                        return inspectable.dom.is($(this).closest(".cq-Editable-dom"));
-                    });
-            } else {
-                // The inspectable can have a direct child as placeholder to allow user interaction
-                // (e.g., "allowed components" in template editor)
-                placeholder = this.dom.find("> ." + placeholderClass);
-            }
-        }
-
-        return placeholder && placeholder.length ? placeholder.data("emptytext") : false;
-        return placeholder && placeholder.length ? placeholder.data("emptytext") : false;
-    };
-
-}(jQuery, Granite.author, jQuery(document)));
+var confirmationDialogTitle = Granite.I18n.get('Warning');
+var confirmationDialogMessage = Granite.I18n.get('Please confirm replacing the current content fragment and its configuration');
+var confirmationDialogCancel = Granite.I18n.get('Cancel');
