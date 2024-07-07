@@ -17,11 +17,11 @@
     "use strict";
 
     // class of the content fragment
-    var CLASS_CONTENTFRAGMENT = "cmp-contentfragment";
+    var CLASS_CONTENTFRAGMENT = Granite.I18n.get('cmp-contentfragment');
     // name of the attribute on the content fragment storing its path
-    var ATTRIBUTE_PATH = "data-cmp-contentfragment-path";
+    var ATTRIBUTE_PATH = Granite.I18n.get('data-cmp-contentfragment-path');
     // base URL of the editor
-    var EDITOR_URL = "/editor.html";
+    var EDITOR_URL = Granite.I18n.get('/editor.html');
 
     var ContentFragmentEditor = ns.util.createClass({
 
