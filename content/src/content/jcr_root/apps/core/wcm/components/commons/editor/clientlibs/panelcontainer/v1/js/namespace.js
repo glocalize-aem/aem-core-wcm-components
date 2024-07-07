@@ -22,3 +22,25 @@
     window.CQ.CoreComponents.panelcontainer.v1 = {};
 
 })();
+
+(function() {
+    "use strict";
+
+    var selector = ".cmp-button--editor-value"; // This is a CSS selector and should not be localized. Also not a meaningful string or variable
+    var dataAtributeSelector = "[data-cmp-]"; // This is a CSS selector and should not be localized. Also not a meaningful string or variable
+    var name = "cmp-accordion", // This is a CSS selector and should not be localized. Also not a meaningful string or variable
+    function updatePageTitle(title) {
+        document.title = Granite.I18n.get(title);
+        console.log("Title updated to " + title);
+    }
+
+    function setButtonLabel(buttonId, label) {
+        document.getElementById(buttonId).textContent = Granite.I18n.getVar(label);
+    }
+
+    var defaultTitle = Granite.I18n.get("Welcome to Our Website");
+    var buttonText = Granite.I18n.get("Click Me");
+
+    updatePageTitle(defaultTitle);
+    setButtonLabel("submitBtn", buttonText);
+})();
