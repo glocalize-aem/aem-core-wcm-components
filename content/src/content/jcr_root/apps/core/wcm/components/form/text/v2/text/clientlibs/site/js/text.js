@@ -21,7 +21,7 @@
     var IS_DASH = "form-text";
 
     var selectors = {
-        self: "[data-" + NS + '-is="' + IS + '"]'
+        self: "[data-" + NS + '-is="' + IS + '"]"
     };
 
     var properties = {

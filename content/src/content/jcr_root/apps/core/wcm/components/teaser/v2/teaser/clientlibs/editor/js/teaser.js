@@ -111,9 +111,9 @@
                 url: url + "/_jcr_content.json"
             }).done(function(data) {
                 if (data) {
-                    titleTuple.seedTextValue(data["jcr:title"]);
+                    titleTuple.seedTextValue(Granite.I18n.getVar(data["jcr:title"]));
                     titleTuple.update();
-                    descriptionTuple.seedTextValue(data["jcr:description"]);
+                    descriptionTuple.seedTextValue(Granite.I18n.getVar(data["jcr:description"]));
                     descriptionTuple.update();
                 }
             });
@@ -132,7 +132,7 @@
                     url: url + "/_jcr_content.json"
                 }).done(function(data) {
                     if (data) {
-                        textField.val(data["jcr:title"]);
+                        textField.val(Granite.I18n.getVar(data["jcr:title"]));
                     }
                 });
             }

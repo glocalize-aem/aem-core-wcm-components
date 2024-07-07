@@ -49,7 +49,7 @@
                 $linkURLField.adaptTo("foundation-field").setValue(link);
             }
             // remove the 'link' property in the JCR repository
-            link = $linkField.val("");
+            link = $linkField.val(Granite.I18n.getVar(""));
         }
     }
 

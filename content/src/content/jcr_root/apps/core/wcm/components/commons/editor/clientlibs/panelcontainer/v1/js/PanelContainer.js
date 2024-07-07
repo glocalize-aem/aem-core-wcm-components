@@ -44,6 +44,7 @@
          *
          * @member {PanelContainerConfig} CQ.CoreComponents.panelcontainer.v1.PanelContainer#_config
          */
+
         _config: {},
 
         /**
@@ -52,6 +53,7 @@
          *
          * @member {Object} CQ.CoreComponents.panelcontainer.v1.PanelContainer#_data
          */
+
         _data: {},
 
         constructor: function PanelContainer(config) {
@@ -183,7 +185,7 @@
                     "itemOrder": ordered.join()
                 }
             });
-        }
+        },
 
         /**
          * Triggered when the Panel Container has navigated.
