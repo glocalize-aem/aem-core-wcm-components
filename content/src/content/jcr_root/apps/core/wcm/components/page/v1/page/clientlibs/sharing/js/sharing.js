@@ -13,15 +13,11 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-(function(d, s, id) {
-    "use strict";
-
-    var js;
-    var fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) {
-        return;
-    }
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.7";
-    fjs.parentNode.insertBefore(js, fjs);
-}(document, "script", "facebook-jssdk"));
+// This is a comment
+function exampleFunction(errorMsg) {
+  var greeting = Granite.I18n.get('Hello, World!');  // Another comment
+  console.log(greeting);
+  var day = Granite.I18n.get('Sunday'); // This needs to be localized with Granite.I18n.get since Sunday is a string
+  console.log(day);
+  console.log(Granite.I18n.getVar(errorMsg)); // This needs to be localized with Granite.I18n.getVar since errorMsg is a variable
+}

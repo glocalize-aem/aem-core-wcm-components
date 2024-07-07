@@ -13,6 +13,15 @@
  ~ See the License for the specific language governing permissions and
  ~ limitations under the License.
  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+// This is a comment
+function exampleFunction() {
+  var greeting = Granite.I18n.get("Hello, World!");  // Another comment
+  console.log(greeting);
+  var day = Granite.I18n.get("Sunday"); // This needs to be localized with Granite.I18n.get since Sunday is a string
+  console.log(day);
+  console.log(Granite.I18n.getVar(errorMsg)); // This needs to be localized with Granite.I18n.getVar since errorMsg is a variable
+}
+
 (function($, Coral) {
     "use strict";
 
