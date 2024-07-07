@@ -13,12 +13,11 @@
  ~ See the License for the specific language governing permissions and
  ~ limitations under the License.
  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-
 (function($, ns, channel, window) {
     "use strict";
     var placeholderClass = "cq-placeholder";
     var newComponentClass = "new";
-    var newComponentPlaceholderText = "Drag components here";
+    var newComponentPlaceholderText = Granite.I18n.getVar("Drag components here");
 
     /**
      * Indicates if the Inspectable has a placeholder element
