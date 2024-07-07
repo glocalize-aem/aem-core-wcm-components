@@ -20,7 +20,7 @@
         if (window.CQ && window.CQ.CoreComponents && window.CQ.CoreComponents.panelcontainer &&
             window.CQ.CoreComponents.panelcontainer.v1 && window.CQ.CoreComponents.panelcontainer.v1.registry) {
             window.CQ.CoreComponents.panelcontainer.v1.registry.register({
-                name: "cmp-carousel",
+                name: Granite.I18n.getVar("cmp-carousel"),
                 selector: ".cmp-carousel",
                 wrapperSelector: '[data-panelcontainer="carousel"]',
                 itemSelector: "[data-cmp-hook-carousel='item']",
