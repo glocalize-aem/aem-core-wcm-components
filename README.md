@@ -127,3 +127,6 @@ The Core Components leverage both OSGi configurations and Sling context-aware co
 
 ### Known Issues
 - The provided oEmbed URL Processor configuration for Facebook and Instagram is not working at the moment as a new version of the endpoint was released by Facebook and now an access token needs to be passed in the request. A possible workaround is described in https://github.com/adobe/aem-core-wcm-components/issues/1225
+
+
+1131313
