@@ -95,12 +95,12 @@
                     if (description === undefined || description.trim() === "") {
                         description = data["dc:title"];
                     }
-                    descriptionTuple.seedTextValue(description);
+                    descriptionTuple.seedTextValue(Granite.I18n.getVar(description));
                     descriptionTuple.update();
                 }
                 if (titleTuple) {
                     var title = data["dc:title"];
-                    titleTuple.seedTextValue(title);
+                    titleTuple.seedTextValue(Granite.I18n.getVar(title));
                     titleTuple.update();
                 }
             }

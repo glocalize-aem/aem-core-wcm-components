@@ -22,7 +22,7 @@
     var SDK_READY_EVENT = "adobe_dc_view_sdk.ready";
 
     var selectors = {
-        self: "[data-" + NS + '-is="' + IS + '"]',
+        self: "[data-" + NS + '-is="' + IS + '"]",
         sdkScript: 'script[src="' + SDK_URL + '"]'
     };
 

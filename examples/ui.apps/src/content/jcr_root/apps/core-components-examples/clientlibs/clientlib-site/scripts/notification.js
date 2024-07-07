@@ -20,10 +20,10 @@
     var delay = 2000;
 
     var states = {
-        'NOTICE': 'notice',
-        'SUCCESS': 'success',
-        'ERROR': 'error',
-        'WARNING': 'warning'
+        'NOTICE': Granite.I18n.getVar('notice'),
+        'SUCCESS': Granite.I18n.getVar('success'),
+        'ERROR': Granite.I18n.getVar('error'),
+        'WARNING': Granite.I18n.getVar('warning')
     };
 
     // font awesome icon key to state map
@@ -44,7 +44,7 @@
         var stateCssClass = 'cmp-examples-notification--' + state;
         notification.classList.add('cmp-examples-notification');
         notification.classList.add(stateCssClass);
-        notification.innerHTML = '<i class="cmp-examples-notification__icon fas fa-' + stateIconMap[state] + '"></i><span class="cmp-examples-notification__text">' + text + '</span>';
+        notification.innerHTML = '<i class="cmp-examples-notification__icon fas fa-' + stateIconMap[state] + '"></i><span class="cmp-examples-notification__text">' + Granite.I18n.getVar(text) + '</span>';
         document.body.appendChild(notification);
 
         window.setTimeout(function() {

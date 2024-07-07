@@ -38,8 +38,8 @@
                             searchResultsStatusMessage.innerText = "";
                         } else {
                             var numberOfResults = searchResultsContainer.querySelectorAll(selectors.itemInSearchResults);
-                            var searchResultsFoundMessage = numberOfResults.length === 1 ? numberOfResults.length + " result" : numberOfResults.length + " results";
-                            var searchResultsNotFoundMessage = "No results";
+                            var searchResultsFoundMessage = numberOfResults.length === 1 ? Granite.I18n.get(numberOfResults.length + " result") : Granite.I18n.get(numberOfResults.length + " results");
+                            var searchResultsNotFoundMessage = Granite.I18n.get("No results");
                             searchResultsStatusMessage.innerText = numberOfResults.length ? searchResultsFoundMessage : searchResultsNotFoundMessage;
                         }
                     }

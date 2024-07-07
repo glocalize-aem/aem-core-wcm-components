@@ -16,8 +16,8 @@
 (function($, Granite) {
     "use strict";
 
-    var START_LEVEL_ERROR_MESSAGE = "Start level is higher than stop level";
-    var STOP_LEVEL_ERROR_MESSAGE = "Stop level is smaller than start level";
+    var START_LEVEL_ERROR_MESSAGE = Granite.I18n.getVar("Start level is higher than stop level");
+    var STOP_LEVEL_ERROR_MESSAGE = Granite.I18n.getVar("Stop level is smaller than start level");
 
     var selectors = {
         edit: {
@@ -133,4 +133,3 @@
     }
 
 })(jQuery, Granite);
-
