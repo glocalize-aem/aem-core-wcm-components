@@ -13,7 +13,6 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-
 (function(document) {
     "use strict";
 
@@ -42,10 +41,7 @@
             newServiceWorker.postMessage({ action: "skipWaiting" });
         });
 
-        toastMessage.innerText = "A new version of this app is available. Click this message to reload.";
-        if (window.CQ && window.CQ.I18n) {
-            toastMessage.innerText = window.CQ.I18n.getMessage("A new version of this app is available. Click this message to reload.");
-        }
+        toastMessage.innerText = Granite.I18n.get("A new version of this app is available. Click this message to reload.");
         toastMessage.className = "cmp-page__toastmessageshow";
     }
 
