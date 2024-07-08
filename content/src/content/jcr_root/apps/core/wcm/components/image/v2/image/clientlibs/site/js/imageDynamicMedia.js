@@ -42,7 +42,7 @@
                 if (request.status >= 200 && request.status < 400) {
                     // success status
                     var responseText = request.responseText;
-                    var rePayload = new RegExp(/^(?:\/\*jsonp\*\/)?\s*([^()]+)\(([\s\S]+),\s*"[0-9]*"\);?$/gmi);
+                    var rePayload = new RegExp(/^(?:\/\*jsonp\*\/)?\s*([^()]+)\(([^,]+),\s*"[0-9]*"\);?$/gmi);
                     var rePayloadJSON = new RegExp(/^{[\s\S]*}$/gmi);
                     var resPayload = rePayload.exec(responseText);
                     var payload;
