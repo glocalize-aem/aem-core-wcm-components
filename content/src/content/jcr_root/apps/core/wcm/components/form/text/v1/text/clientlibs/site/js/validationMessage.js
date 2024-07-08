@@ -39,11 +39,11 @@
                 e.target.setCustomValidity("");
                 if (e.target.validity.typeMismatch) {
                     if (inputField.hasAttribute(CONSTRAINT_MSG_ATTRIBUTE)) {
-                        e.target.setCustomValidity(inputField.getAttribute(CONSTRAINT_MSG_ATTRIBUTE));
+                        e.target.setCustomValidity(Granite.I18n.getVar(inputField.getAttribute(CONSTRAINT_MSG_ATTRIBUTE)));
                     }
                 } else if (e.target.validity.valueMissing) {
                     if (inputField.hasAttribute(REQUIRED_MSG_ATTRIBUTE)) {
-                        e.target.setCustomValidity(inputField.getAttribute(REQUIRED_MSG_ATTRIBUTE));
+                        e.target.setCustomValidity(Granite.I18n.getVar(inputField.getAttribute(REQUIRED_MSG_ATTRIBUTE)));
                     }
                 }
             });
